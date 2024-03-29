@@ -2,7 +2,7 @@
   setup
   lang="ts"
 >
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/solid";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/solid";
 import { computed, ref } from "vue";
 
 const props = defineProps<{

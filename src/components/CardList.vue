@@ -1,16 +1,14 @@
 <script
   lang="ts"
   setup
-  generic="T extends Country"
 >
 import Card from "@/components/Card.vue";
 import Dialog from "@/components/Dialog.vue";
-import type { Country } from "@/stores/countries";
 
 import { computed, ref } from "vue";
 
 const props = defineProps<{
-  items: T[];
+  items: any[];
 }>()
 
 const selectedCountry = ref<number>(-1)
@@ -39,10 +37,6 @@ const openDialog = (index: number) => {
   >
     <div class="max-w-screen-md max-h-[50vh] overflow-auto my-4">
       <pre>{{ JSON.stringify(items[selectedCountry], undefined, 2) }}</pre>
-
-      <!-- <p>Capital: {{ items[selectedCountry]?.capital }}</p>
-        <p>Area: {{ items[selectedCountry]?.area }} km²</p>
-        <p>Population: {{ items[selectedCountry]?.population }}</p> -->
     </div>
   </Dialog>
 </template>

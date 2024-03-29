@@ -9,7 +9,7 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue'
-import { CheckIcon } from '@heroicons/vue/20/solid'
+import { CheckIcon } from '@heroicons/vue/24/solid'
 import ArrowsUpDown from '@/components/icons/IconUpDown.vue'
 const props = defineProps<{
   placeholder?: string
@@ -27,7 +27,7 @@ const model = defineModel<any>()
         >
           <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2">
             <ArrowsUpDown
-              class="h-5 w-5 text-gray-600"
+              class="h-4 w-4 text-gray-600"
               aria-hidden="true"
             />
           </span>

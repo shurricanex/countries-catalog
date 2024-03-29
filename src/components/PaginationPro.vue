@@ -3,7 +3,7 @@
   setup
 >
 import { watch, ref } from 'vue';
-
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps<{
   total: number;
@@ -78,7 +78,9 @@ const prevPage = () => {
       :disabled="page == 1 || total == 0"
       :class="page == 1 && 'opacity-50 cursor-not-allowed'"
       @click="prevPage"
-    >&laquo;</button>
+    >
+      <ChevronLeftIcon></ChevronLeftIcon>
+    </button>
     <button
       class="bg-indigo-500 text-white px-3 h-10 w-10 rounded-full  mx-1"
       v-if="start != 1 && total != 0"
@@ -101,7 +103,9 @@ const prevPage = () => {
       :disabled="page == last || total == 0"
       :class="page == last && 'opacity-50 cursor-not-allowed'"
       @click="nextPage"
-    >&raquo;</button>
+    >
+      <ChevronRightIcon></ChevronRightIcon>
+    </button>
     <!-- <div>
       <select
         v-model="limit"

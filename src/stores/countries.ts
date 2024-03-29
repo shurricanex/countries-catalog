@@ -21,7 +21,18 @@ export interface Country {
   cca3: string;
   altSpellings: string[];
   idd: { root: string; suffixes: string[] };
+  currencies: Record<string, { name: string; symbol: string }>;
+  languages: Record<string, string>;
+  continents: string[];
+  capital: string[];
+  maps: { googleMaps: string; openStreetMaps: string };
+  population: number;
+  timezones: string[];
+  startOfWeek: string;
+
 }
+
+
 
 export const useCountriesStore = defineStore("countriesStore", () => {
   const countries = ref<Country[]>([]);

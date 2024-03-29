@@ -17,7 +17,7 @@ const nativeName = computed(() => {
 
 <template>
   <div
-    class="max-w-sm  overflow-hidden shadow-lg rounded-lg hover:scale-[102%] transition-all duration-300 ease-in-out bg-white cursor-pointer"
+    class="max-w-sm group overflow-hidden shadow-lg rounded-lg hover:scale-[102%] transition-all duration-300 ease-in-out bg-white cursor-pointer"
     v-if="props"
   >
     <div :class="['w-full h-36', props.isLoading && 'w-full animate-pulse bg-gray-200']">
@@ -29,7 +29,9 @@ const nativeName = computed(() => {
       >
     </div>
     <div class="px-6 py-4 ">
-      <div :class="['font-bold text-lg mb-2 ', props.isLoading && 'animate-pulse w-full bg-gray-200 rounded-full']">
+      <div
+        :class="['font-bold text-lg mb-2 group-hover:underline ', props.isLoading && 'animate-pulse w-full bg-gray-200 rounded-full']"
+      >
         {{ props.name?.official }}<span v-if="nativeName">({{ nativeName }})</span>
       </div>
       <p :class="['text-gray-700 text-base', props.isLoading && ' h-4 animate-pulse w-full bg-gray-200 rounded-full']">
@@ -42,7 +44,7 @@ const nativeName = computed(() => {
     </div>
     <div class="px-6 pt-4 pb-2">
       <span
-        v-for="(suffix, index) in props.idd?.suffixes?.slice(0, 3)"
+        v-for="( suffix, index ) in  props.idd?.suffixes?.slice(0, 3) "
         :key="index"
         class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
       >{{ props.idd.root + suffix }}</span>

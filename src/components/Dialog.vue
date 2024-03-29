@@ -90,7 +90,7 @@ const _modelValue = computed({
 
               <DialogTitle
                 as="h3"
-                class="text-lg font-medium leading-6"
+                class="font-medium leading-6 text-2xl"
               >
                 {{ title }}
               </DialogTitle>

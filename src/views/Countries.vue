@@ -7,7 +7,7 @@ import { storeToRefs } from 'pinia';
 import { useCountriesStore } from '@/stores/countries';
 
 import CardList from '@/components/CardList.vue';
-import IconSearch from '@/components/icons/IconSearch.vue';
+import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid';
 import PaginationPro from '@/components/PaginationPro.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 
@@ -52,7 +52,7 @@ const total = computed(() => searchQuery.value ? filteredCountries.value.length 
 </script>
 
 <template>
-  <div class="w-screen flex-wrap max-w-screen-xl mt-6">
+  <div class="flex-wrap w-full  md:min-w-[1024px] 2xl:min-w-[1280px] sm:min-w-[600px]  mt-6">
     <div class="my-6 flex">
       <span class="text-3xl font-bold ">Countries</span>
       <div class="flex ml-auto">
@@ -65,10 +65,7 @@ const total = computed(() => searchQuery.value ? filteredCountries.value.length 
             ]"
             v-model="searchQuery"
           />
-          <component
-            :is="IconSearch"
-            class="absolute top-0 left-0 bottom-0 my-auto ml-3"
-          />
+          <MagnifyingGlassIcon class="absolute top-0 left-0 bottom-0 my-auto ml-3 h-4 w-4" />
         </div>
         <div class="flex items-center ml-4">
           <BaseSelect
@@ -83,14 +80,18 @@ const total = computed(() => searchQuery.value ? filteredCountries.value.length 
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-5 gap-4">
+    <div class="grid grid-cols-5 gap-4 md:grid-cols-4 sm:grid-cols-2">
       <CardList
         :items="filteredCountries"
+        :is-loading="!countries.length"
         v-if="countries.length"
       />
 
     </div>
-    <div class="flex">
+    <div
+      class="flex"
+      v-show="total > 0"
+    >
       <PaginationPro
         class="my-6 inline-flex ml-auto"
         v-model:page="pagination.page"
